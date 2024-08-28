@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'sass:math';
+
+@function strip-unit($value) {
+    @return math.div($value, $value * 0 + 1);
+}
+
+// https://css-tricks.com/snippets/css/fluid-typography/
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+
+    @if $u1==$u2 and $u1==$u3 and $u1==$u4 {
+        & {
+            font-size: $min-font-size;
+
+            @media screen and (min-width: $min-vw) {
+                font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+            }
+
+            @media screen and (min-width: $max-vw) {
+                font-size: $max-font-size;
+            }
+        }
+    }
+}
+
+html,
+body,
+section {
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    font-family: "Patrick Hand", cursive;
+    font-style: normal;
+}
+
+h1 {
+    font-weight: 600;
+    @include fluid-type(320px, 2000px, 50px, 90px);
+}
+
+button {
+    @include fluid-type(320px, 2000px, 20px, 70px);
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+}
