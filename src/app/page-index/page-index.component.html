@@ -1,7 +1,7 @@
 <div class="page-index">
   <div class="index-container">
     <div *ngFor="let pageIndex of getArray(pageCount)">
-      <div class="index" ngClass="{{ getAdditionalClasses(pageIndex) }}"></div>
+      <div class="index" ngClass="{{ getAdditionalClasses(pageIndex) }}" (click)="indexClick(pageIndex)"></div>
     </div>
   </div>
 </div>

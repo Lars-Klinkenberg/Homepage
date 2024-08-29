@@ -1,1 +1,14 @@
-<app-home></app-home>
+<div class="content">
+  <div class="main">
+    <app-home #home id="home"></app-home>
+    <app-about #about id="about"></app-about>
+  </div>
+  <div class="side">
+    <page-index
+      [pageCount]="allPageIds.length"
+      [currentPage]="currentPage"
+      (indexClicked)="scrollToIndex($event)"
+      class="page-index"
+    ></page-index>
+  </div>
+</div>

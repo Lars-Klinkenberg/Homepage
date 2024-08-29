@@ -6,9 +6,9 @@
             width: 30px;
             height: 30px;
             margin: 10px;
-            margin-left: auto;
             border-radius: 50%;
             background-color: darkgrey;
+            cursor: pointer;
 
             &.active {
                 background-color: grey;
