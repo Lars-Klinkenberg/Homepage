@@ -1,0 +1,17 @@
+@import "../../mixin.scss";
+
+#about {
+    box-sizing: border-box;
+    padding-inline: 2%;
+
+    .content-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .information {
+            @include fluid-type(320px, 2000px, 20px, 50px);
+        }
+    }
+}
