@@ -27,10 +27,16 @@
                 height: 100%;
             }
 
-            .button {
+            .arrow-button {
                 height: 30%;
                 cursor: pointer;
+                border: 0;
+
+                .arrow-image{
+                    height: 100%;
+                }
             }
+            
         }
 
         .caption {
