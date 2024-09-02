@@ -1,1 +1,16 @@
-<router-outlet></router-outlet>
+<div class="content">
+  <div class="main" #main>
+    <app-home #home (ctaClicked)="scrollToIndex($event)"></app-home>
+    <app-about #about></app-about>
+    <app-projects #projects></app-projects>
+    <app-contact #contact></app-contact>
+  </div>
+  <div class="side">
+    <page-index
+      [pageCount]="allPageIds.length"
+      [currentPage]="currentPage"
+      (indexClicked)="scrollToIndex($event)"
+      class="page-index"
+    ></page-index>
+  </div>
+</div>

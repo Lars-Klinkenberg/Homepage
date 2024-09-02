@@ -1,0 +1,22 @@
+@import "../../mixin.scss";
+
+
+#contact {
+    padding-inline: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .headline {
+        @include fluid-type(320px, 2000px, 50px, 150px);
+        max-width: 70%;
+        margin: 0;
+    }
+
+    .socials {
+        .social-icon {
+            @include fluid-size(320px, 2000px, 50px, 150px);
+            margin: 20px;
+        }
+    }
+}

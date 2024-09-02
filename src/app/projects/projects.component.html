@@ -1,0 +1,21 @@
+<section id="projects">
+  <h1 class="headline">My Projects</h1>
+  <div class="carussel-container">
+    <div class="carussel">
+      <button (click)="switchProject('left')" class="arrow-button">
+        <img src="assets/arrow_left.svg" class="arrow-image" alt="<-" />
+      </button>
+      <img
+        [src]="this.allProjects[currentProject].imagePath"
+        [alt]="this.allProjects[currentProject].name"
+        class="project-picture"
+      />
+      <button (click)="switchProject('right')" class="arrow-button">
+        <img src="assets/arrow_right.svg" class="arrow-image" alt="->" />
+      </button>
+    </div>
+    <div class="caption">
+      {{ this.allProjects[currentProject].description }}
+    </div>
+  </div>
+</section>

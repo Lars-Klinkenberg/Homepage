@@ -1,7 +1,0 @@
-<div class="pageIndicatorContainer">
-  <div class="pageIndicatorItem" *ngFor="let item of getPages(); let i = index">
-    <div class="pageIndicatorCircle active" *ngIf="i === currentPage"></div>
-    <div class="pageIndicatorCircle" *ngIf="i !== currentPage"></div>
-    <div class="verticalLine" *ngIf="i+1 !== totalPages"></div>
-  </div>
-</div>

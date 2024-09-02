@@ -1,33 +1,22 @@
-# PortfolioPage
+# Project Title
 
-Welcome to PortfolioPage, a project dedicated to exploring new technologies and expanding knowledge.   
-Each project within this repository is selected based on interesting technologies or fascinating styles.
+## Description
 
-## Disclaimer
+This project is a portfolio page showcasing my coding projects and skills. It serves as a central hub to learn more about my work and experience.
 
-All pages within this project are non-profit. They are created solely for the purpose of expanding my knowledge. I do not own the copyright licenses to the used images but have made efforts to provide sources to the original images where possible.
+## Features
 
-## Folder Structure
+- Responsive design for optimal viewing on different devices
+- Sections for project showcases, skills, and contact information
+- Easy navigation through the page using a menu or scroll
 
-```
-├── src
-│   ├── app
-│   │   ├── pages
-│   │   │   ├── examplePage
-│   │   │   │   ├── components
-│   │   │   │   ├── model
-│   │   │   │   │   ├── examplePage.component.ts
-│   │   ├── shared
-│   │   │   ├── layout
-│   │   │   │   ├── sharedComponent
-│   │   │   │   │   ├── sharedComponent.component.ts
-```
+## Installation
 
-In the `pages` folder, components are sorted by pages. For example, the Home page. Components that can potentially be used in multiple pages are located in the `shared` folder.
+1. Clone the repository
+2. Navigate to the project directory
+3. Install dependencies: `npm install`
+4. Start the development server: `npm run start`
 
-## Versions
+## Contributing
 
-- [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
-
-
-Feel free to explore the projects within this repository and reach out if you have any questions or suggestions!
+Contributions are welcome! If you have any suggestions or improvements, please open an issue or submit a pull request.
