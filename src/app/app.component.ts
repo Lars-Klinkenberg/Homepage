@@ -1,4 +1,10 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  ViewChild,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
@@ -20,11 +26,41 @@ import { ContactComponent } from './contact/contact.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+  @ViewChild('main', { read: ElementRef }) mainElement!: ElementRef;
   @ViewChild('home', { read: ElementRef }) homeElement!: ElementRef;
   @ViewChild('about', { read: ElementRef }) aboutElement!: ElementRef;
   @ViewChild('projects', { read: ElementRef }) projectsElement!: ElementRef;
   @ViewChild('contact', { read: ElementRef }) contactElement!: ElementRef;
+
+  ngAfterViewInit() {
+    this.mainElement.nativeElement.addEventListener(
+      'scroll',
+      this.onViewportScroll.bind(this)
+    );
+  }
+
+  public onViewportScroll() {
+    const DELTA = 100;
+    const TOP = 0;
+    const home = this.homeElement.nativeElement.getBoundingClientRect();
+    const about = this.aboutElement.nativeElement.getBoundingClientRect();
+    const projects = this.projectsElement.nativeElement.getBoundingClientRect();
+    const contact = this.contactElement.nativeElement.getBoundingClientRect();
+
+    if (this.checkIfNumInRange(home.top, TOP, DELTA)) {
+      this.currentPage = 0;
+    }
+    if (this.checkIfNumInRange(about.top, TOP, DELTA)) {
+      this.currentPage = 1;
+    }
+    if (this.checkIfNumInRange(projects.top, TOP, DELTA)) {
+      this.currentPage = 2;
+    }
+    if (this.checkIfNumInRange(contact.top, TOP, DELTA)) {
+      this.currentPage = 3;
+    }
+  }
 
   title = 'Portfoliopage';
   allPageIds = ['home', 'about', 'projects', 'contact'];
@@ -61,5 +97,9 @@ export class AppComponent {
   scrollToIndex(index: number) {
     this.scrollToElement(this.allPageIds[index]);
     this.currentPage = index;
+  }
+
+  checkIfNumInRange(num: number, target: number, delta: number): boolean {
+    return num >= target - delta && num <= target + delta;
   }
 }
