@@ -33,6 +33,16 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('projects', { read: ElementRef }) projectsElement!: ElementRef;
   @ViewChild('contact', { read: ElementRef }) contactElement!: ElementRef;
 
+  title = 'Portfoliopage';
+  allPageIds = ['home', 'about', 'projects', 'contact'];
+  currentPage = 0;
+  /**
+   * The index to which the component is currently scrolling.
+   * -1 not auto scrolling
+   * index of scroll to page
+   */
+  currentlyScrollingToIndex = -1;
+
   ngAfterViewInit() {
     this.mainElement.nativeElement.addEventListener(
       'scroll',
@@ -49,22 +59,41 @@ export class AppComponent implements AfterViewInit {
     const contact = this.contactElement.nativeElement.getBoundingClientRect();
 
     if (this.checkIfNumInRange(home.top, TOP, DELTA)) {
-      this.currentPage = 0;
+      this.setCurrentPage(0);
     }
     if (this.checkIfNumInRange(about.top, TOP, DELTA)) {
-      this.currentPage = 1;
+      this.setCurrentPage(1);
     }
     if (this.checkIfNumInRange(projects.top, TOP, DELTA)) {
-      this.currentPage = 2;
+      this.setCurrentPage(2);
     }
     if (this.checkIfNumInRange(contact.top, TOP, DELTA)) {
-      this.currentPage = 3;
+      this.setCurrentPage(3);
     }
   }
 
-  title = 'Portfoliopage';
-  allPageIds = ['home', 'about', 'projects', 'contact'];
-  currentPage = 0;
+  /**
+   * Sets the current page to the specified index. if its not currently scrolling
+   *
+   * @param index - The index of the page to set as the current page.
+   */
+  setCurrentPage(index: number) {
+    console.log('setCurrentPage ', index, this.currentlyScrollingToIndex);
+
+    // if goal index of auto scroll is reached
+    if (this.currentlyScrollingToIndex == index) {
+      this.currentPage = index;
+      this.currentlyScrollingToIndex = -1;
+      return;
+    }
+    // if auto scrolling and index not reached
+    if (this.currentlyScrollingToIndex != -1) {
+      return;
+    }
+
+    // on manual scroll
+    this.currentPage = index;
+  }
 
   scrollToElement(elementId: string): void {
     let element;
@@ -96,7 +125,7 @@ export class AppComponent implements AfterViewInit {
 
   scrollToIndex(index: number) {
     this.scrollToElement(this.allPageIds[index]);
-    this.currentPage = index;
+    this.currentlyScrollingToIndex = index;
   }
 
   checkIfNumInRange(num: number, target: number, delta: number): boolean {
