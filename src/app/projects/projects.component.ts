@@ -37,19 +37,9 @@ export class ProjectsComponent {
   currentProject = 0;
 
   switchProject(direction: 'left' | 'right') {
-    if (direction == 'left' && this.currentProject == 0) {
-      this.currentProject = this.allProjects.length - 1;
-    } else if (direction == 'left') {
-      this.currentProject--;
-    }
-
-    if (
-      direction == 'right' &&
-      this.currentProject == this.allProjects.length - 1
-    ) {
-      this.currentProject = 0;
-    } else if (direction == 'right') {
-      this.currentProject++;
-    }
+    const increment = direction === 'right' ? 1 : -1;
+    this.currentProject =
+      (this.currentProject + increment + this.allProjects.length) %
+      this.allProjects.length;
   }
 }

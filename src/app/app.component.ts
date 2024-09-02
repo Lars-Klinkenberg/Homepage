@@ -53,22 +53,18 @@ export class AppComponent implements AfterViewInit {
   public onViewportScroll() {
     const DELTA = 100;
     const TOP = 0;
-    const home = this.homeElement.nativeElement.getBoundingClientRect();
-    const about = this.aboutElement.nativeElement.getBoundingClientRect();
-    const projects = this.projectsElement.nativeElement.getBoundingClientRect();
-    const contact = this.contactElement.nativeElement.getBoundingClientRect();
+    const elements = [
+      this.homeElement,
+      this.aboutElement,
+      this.projectsElement,
+      this.contactElement,
+    ];
 
-    if (this.checkIfNumInRange(home.top, TOP, DELTA)) {
-      this.setCurrentPage(0);
-    }
-    if (this.checkIfNumInRange(about.top, TOP, DELTA)) {
-      this.setCurrentPage(1);
-    }
-    if (this.checkIfNumInRange(projects.top, TOP, DELTA)) {
-      this.setCurrentPage(2);
-    }
-    if (this.checkIfNumInRange(contact.top, TOP, DELTA)) {
-      this.setCurrentPage(3);
+    for (let i = 0; i < elements.length; i++) {
+      const rect = elements[i].nativeElement.getBoundingClientRect();
+      if (this.checkIfNumInRange(rect.top, TOP, DELTA)) {
+        this.setCurrentPage(i);
+      }
     }
   }
 
@@ -96,30 +92,17 @@ export class AppComponent implements AfterViewInit {
   }
 
   scrollToElement(elementId: string): void {
-    let element;
-    switch (elementId) {
-      case 'home': {
-        element = this.homeElement;
-        break;
-      }
-      case 'about': {
-        element = this.aboutElement;
-        break;
-      }
-      case 'projects': {
-        element = this.projectsElement;
-        break;
-      }
-      case 'contact': {
-        element = this.contactElement;
-        break;
-      }
-      default:
-        return;
-    }
+    const elementMap: { [key: string]: ElementRef } = {
+      home: this.homeElement,
+      about: this.aboutElement,
+      projects: this.projectsElement,
+      contact: this.contactElement,
+    };
 
-    if (element) {
-      element.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    if (elementMap[elementId]) {
+      elementMap[elementId].nativeElement.scrollIntoView({
+        behavior: 'smooth',
+      });
     }
   }
 
