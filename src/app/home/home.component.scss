@@ -14,7 +14,7 @@
         .profile-picture {
             aspect-ratio: 1/1;
             max-height: 50%;
-            max-width: 100%;
+            max-width: 80%;
             border-radius: 50%;
         }
 
@@ -39,6 +39,12 @@
 
         @media (max-width:800px) {
             flex-direction: column;
+            justify-content: center;
+
+            .welcome-text-container {
+                height: auto;
+                margin-top: 20px;
+            }
         }
     }
 }

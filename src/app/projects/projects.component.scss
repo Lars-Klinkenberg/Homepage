@@ -7,11 +7,11 @@
     justify-content: flex-start;
 
     .headline {
-        margin-bottom: 0;
+        margin-bottom: 20px;
     }
 
     .carussel-container {
-        height: 70%;
+        max-height: 70%;
         max-width: 100%;
         display: flex;
         flex-direction: column;
