@@ -1,5 +1,8 @@
 <section id="home">
-  <div class="home-content">
+  <div
+    class="home-content"
+    [class]="themingService.isDarkModeActive ? 'dark' : 'light'"
+  >
     <img
       src="assets/Klinkenberg_Lars.jpg"
       alt="profile"

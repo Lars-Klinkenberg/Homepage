@@ -1,4 +1,7 @@
-<div class="content">
+<div
+  class="content"
+  [class]="themingService.isDarkModeActive ? 'dark' : 'light'"
+>
   <div class="main" #main>
     <app-home #home (ctaClicked)="scrollToIndex($event)"></app-home>
     <app-about #about></app-about>
@@ -6,6 +9,20 @@
     <app-contact #contact></app-contact>
   </div>
   <div class="side">
+    <div class="darkToggleContainer">
+      <button (click)="themingService.toggleDarkMode()" class="darkToggle">
+        <img
+          src="assets/dark_mode.svg"
+          alt=""
+          *ngIf="!themingService.isDarkModeActive"
+        />
+        <img
+          src="assets/light_mode.svg"
+          alt=""
+          *ngIf="themingService.isDarkModeActive"
+        />
+      </button>
+    </div>
     <page-index
       [pageCount]="allPageIds.length"
       [currentPage]="currentPage"

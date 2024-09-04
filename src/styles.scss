@@ -26,7 +26,7 @@ h1 {
 
 button {
     @include fluid-type(320px, 2000px, 20px, 70px);
-    background-color: #fff;
+    background: none;
     border: 2px solid black;
     border-radius: 15px;
     cursor: pointer;

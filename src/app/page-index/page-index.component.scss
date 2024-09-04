@@ -1,6 +1,4 @@
 .page-index {
-    width: 10%;
-
     .index-container {
         .index {
             width: 30px;
@@ -12,6 +10,18 @@
 
             &.active {
                 background-color: grey;
+            }
+        }
+    }
+
+    &.dark {
+        .index-container {
+            .index {
+                background-color: white;
+
+                &.active {
+                    background-color: grey;
+                }
             }
         }
     }
