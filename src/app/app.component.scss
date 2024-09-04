@@ -25,4 +25,19 @@
         justify-content: center;
         align-items: center;
     }
+
+    @media (max-width:800px) {
+        .side {
+            display: none;
+        }
+
+        .main {
+            scrollbar-width: auto;
+            -ms-overflow-style: auto;
+
+            &::-webkit-scrollbar {
+                display: auto;
+            }
+        }
+    }
 }
