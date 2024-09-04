@@ -12,6 +12,15 @@ section {
     height: 100%;
     padding: 0;
     margin: 0;
+
+    @media (max-width:800px) {
+        height: auto;
+        padding-bottom: 25%;
+
+        &#home{
+            padding-top: 10%;
+        }
+    }
 }
 
 * {
