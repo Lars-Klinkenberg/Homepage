@@ -24,7 +24,7 @@ Contributions are welcome! If you have any suggestions or improvements, please o
 ## deployment
 https://v17.angular.io/guide/deployment
 
-ng build --output-path docs --base-href /PortfolioPage/
+ng build --output-path docs --base-href /./
 
 
 - When the build is complete, make a copy of docs/index.html and name it docs/404.html.
