@@ -47,7 +47,7 @@ export class AppComponent implements AfterViewInit {
   currentlyScrollingToIndex = -1;
 
   constructor(public themingService: ThemingService) {
-    themingService.loadCookie();
+    themingService.loadDarkModeSettings();
   }
 
   ngAfterViewInit() {
