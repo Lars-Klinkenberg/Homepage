@@ -11,11 +11,14 @@ import { AboutComponent } from './about/about.component';
 import { PageIndexComponent } from './page-index/page-index.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
+import { ThemingService } from './theming.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    CommonModule,
     RouterOutlet,
     HomeComponent,
     AboutComponent,
@@ -42,6 +45,8 @@ export class AppComponent implements AfterViewInit {
    * index of scroll to page
    */
   currentlyScrollingToIndex = -1;
+
+  constructor(public themingService: ThemingService) {}
 
   ngAfterViewInit() {
     this.mainElement.nativeElement.addEventListener(
@@ -74,8 +79,6 @@ export class AppComponent implements AfterViewInit {
    * @param index - The index of the page to set as the current page.
    */
   setCurrentPage(index: number) {
-    console.log('setCurrentPage ', index, this.currentlyScrollingToIndex);
-
     // if goal index of auto scroll is reached
     if (this.currentlyScrollingToIndex == index) {
       this.currentPage = index;

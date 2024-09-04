@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ThemingService } from '../theming.service';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HomeComponent {
   @Output() ctaClicked = new EventEmitter<number>();
+  
+  constructor(public themingService: ThemingService) {}
 
   ctaClick() {
     this.ctaClicked.emit(1);

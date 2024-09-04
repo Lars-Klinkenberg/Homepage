@@ -37,6 +37,13 @@
             }
         }
 
+        &.dark{
+            .cta{
+                border-color: #fff;
+                color: #fff;
+            }
+        }
+
         @media (max-width:800px) {
             flex-direction: column;
             justify-content: center;

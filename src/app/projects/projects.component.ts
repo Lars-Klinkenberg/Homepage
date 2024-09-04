@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ThemingService } from '../theming.service';
+import { CommonModule } from '@angular/common';
 
 export interface Project {
   name: string;
@@ -9,11 +11,13 @@ export interface Project {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent {
+  constructor(public themingService: ThemingService) {}
+
   allProjects: Project[] = [
     {
       name: 'Chatbots',

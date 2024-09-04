@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ThemingService } from '../theming.service';
 
 @Component({
   selector: 'page-index',
@@ -12,9 +13,11 @@ export class PageIndexComponent {
   @Input() pageCount: number = 0;
   @Input() currentPage: number = 0;
   @Output() indexClicked = new EventEmitter<number>();
-  
+
+  constructor(public themingService: ThemingService) {}
+
   getArray(length: number): number[] {
-    return Array.from({ length }, (_, i) => i );
+    return Array.from({ length }, (_, i) => i);
   }
 
   getAdditionalClasses(pageIndex: number): string {
@@ -23,7 +26,7 @@ export class PageIndexComponent {
     return '';
   }
 
-  indexClick(index: number){
-    this.indexClicked.emit(index)
+  indexClick(index: number) {
+    this.indexClicked.emit(index);
   }
 }

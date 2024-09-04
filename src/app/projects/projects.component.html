@@ -3,7 +3,18 @@
   <div class="carussel-container">
     <div class="carussel">
       <button (click)="switchProject('left')" class="arrow-button">
-        <img src="assets/arrow_left.svg" class="arrow-image" alt="<-" />
+        <img
+          src="assets/arrow_left.svg"
+          class="arrow-image"
+          alt="<-"
+          *ngIf="!themingService.isDarkModeActive"
+        />
+        <img
+          src="assets/arrow_left_white.svg"
+          class="arrow-image"
+          alt="<-"
+          *ngIf="themingService.isDarkModeActive"
+        />
       </button>
       <img
         [src]="this.allProjects[currentProject].imagePath"
@@ -11,7 +22,18 @@
         class="project-picture"
       />
       <button (click)="switchProject('right')" class="arrow-button">
-        <img src="assets/arrow_right.svg" class="arrow-image" alt="->" />
+        <img
+          src="assets/arrow_right.svg"
+          class="arrow-image"
+          alt="->"
+          *ngIf="!themingService.isDarkModeActive"
+        />
+        <img
+          src="assets/arrow_right_white.svg"
+          class="arrow-image"
+          alt="->"
+          *ngIf="themingService.isDarkModeActive"
+        />
       </button>
     </div>
     <div class="caption">
