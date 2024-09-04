@@ -46,7 +46,9 @@ export class AppComponent implements AfterViewInit {
    */
   currentlyScrollingToIndex = -1;
 
-  constructor(public themingService: ThemingService) {}
+  constructor(public themingService: ThemingService) {
+    themingService.loadCookie();
+  }
 
   ngAfterViewInit() {
     this.mainElement.nativeElement.addEventListener(
