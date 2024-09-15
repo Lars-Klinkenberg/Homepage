@@ -21,7 +21,7 @@ This project is a portfolio page showcasing my coding projects and skills. It se
 
 Contributions are welcome! If you have any suggestions or improvements, please open an issue or submit a pull request.
 
-## deployment
+## Deployment
 https://v17.angular.io/guide/deployment
 
 ng build --output-path docs --base-href /./
