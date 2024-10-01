@@ -17,10 +17,6 @@ This project is a portfolio page showcasing my coding projects and skills. It se
 3. Install dependencies: `npm install`
 4. Start the development server: `npm run start`
 
-## Contributing
-
-Contributions are welcome! If you have any suggestions or improvements, please open an issue or submit a pull request.
-
 ## Deployment
 https://v17.angular.io/guide/deployment
 
