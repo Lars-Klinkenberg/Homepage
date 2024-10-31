@@ -25,7 +25,7 @@ git merge $SOURCE_BRANCH
 
 # Build the changes
 echo "Building changes..."
-ng build --output-path docs --base-href /./
+ng build --output-path docs --base-href ./
 
 # Move files
 echo "Moving files..."
