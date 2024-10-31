@@ -39,5 +39,40 @@
     <div class="caption">
       {{ this.allProjects[currentProject].description }}
     </div>
+
+    <div class="links">
+      <div *ngIf="allProjects[currentProject].url" class="source">
+        <a href="{{ this.allProjects[currentProject].url }}" target="_blank">
+          <img
+            *ngIf="!themingService.isDarkModeActive"
+            src="assets/globe_dark.png"
+            alt="Website"
+            class="icon"
+          />
+          <img
+            *ngIf="themingService.isDarkModeActive"
+            src="assets/globe_light.png"
+            alt="Website"
+            class="icon"
+          />
+        </a>
+      </div>
+      <div *ngIf="allProjects[currentProject].github" class="source">
+        <a href="{{ this.allProjects[currentProject].url }}" target="_blank">
+          <img
+            *ngIf="!themingService.isDarkModeActive"
+            src="assets/code_dark.png"
+            alt="GitHub"
+            class="icon"
+          />
+          <img
+            *ngIf="themingService.isDarkModeActive"
+            src="assets/code_light.png"
+            alt="GitHub"
+            class="icon"
+          />
+        </a>
+      </div>
+    </div>
   </div>
 </section>
