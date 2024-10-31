@@ -31,6 +31,7 @@ ng build --output-path docs --base-href /./
 echo "Moving files..."
 mv ./docs/browser/* ./docs/
 cp ./CNAME ./docs/
+cp ./docs/index.html docs/404.html
 
 # commit and push
 echo "Commiting..."
