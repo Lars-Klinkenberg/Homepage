@@ -33,7 +33,7 @@ export class ProjectsComponent {
       imagePath: 'assets/smart_desk.png',
       description:
         'Working on controlling my Desk via Raspeberry Pi to monitor my time standing. Furthermore control the height of the desk.',
-      github: 'https://github.com/Lars-Klinkenberg/Homepage',
+      github: 'https://github.com/Lars-Klinkenberg/smart-desk',
     },
     {
       name: 'Resume Page',
