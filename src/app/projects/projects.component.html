@@ -58,7 +58,7 @@
         </a>
       </div>
       <div *ngIf="allProjects[currentProject].github" class="source">
-        <a href="{{ this.allProjects[currentProject].url }}" target="_blank">
+        <a href="{{ this.allProjects[currentProject].github }}" target="_blank">
           <img
             *ngIf="!themingService.isDarkModeActive"
             src="assets/code_dark.png"
