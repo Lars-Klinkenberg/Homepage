@@ -33,16 +33,36 @@
             .cta {
                 margin-top: 15%;
                 padding: 20px;
-
             }
         }
 
-        &.dark{
-            .cta{
+        &.light {
+            .cta {
+                transition: background-color 0.4s linear, color 0.3s linear;
+                color: #000;
+
+                &:hover {
+                    background-color: #000;
+                    color: #fff;
+                    transition: background-color 0.4s linear, color 0.3s linear;
+                }
+            }
+        }
+
+        &.dark {
+            .cta {
                 border-color: #fff;
                 color: #fff;
+                transition: background-color 0.4s linear, color 0.3s linear;
+
+                &:hover {
+                    background-color: #fff;
+                    color: #000;
+                    transition: background-color 0.4s linear, color 0.3s linear;
+                }
             }
         }
+
 
         @media (max-width:800px) {
             flex-direction: column;
