@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { ThemingService } from '../theming.service';
 
 @Component({
     selector: 'page-index',
     imports: [CommonModule],
     templateUrl: './page-index.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './page-index.component.scss'
 })
 export class PageIndexComponent {

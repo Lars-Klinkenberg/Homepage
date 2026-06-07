@@ -4,6 +4,7 @@ import {
   ElementRef,
   HostListener,
   ViewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -25,6 +26,7 @@ import { ThemingService } from './theming.service';
     ContactComponent
 ],
     templateUrl: './app.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './app.component.scss'
 })
 export class AppComponent implements AfterViewInit {
