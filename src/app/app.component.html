@@ -1,7 +1,7 @@
 <div
   class="content"
   [class]="themingService.isDarkModeActive ? 'dark' : 'light'"
->
+  >
   <div class="content-max-width">
     <div class="main" #main>
       <app-home #home (ctaClicked)="scrollToIndex($event)"></app-home>
@@ -12,16 +12,18 @@
     <div class="side">
       <div class="darkToggleContainer">
         <button (click)="themingService.toggleDarkMode()" class="darkToggle">
-          <img
-            src="assets/dark_mode.svg"
-            alt=""
-            *ngIf="!themingService.isDarkModeActive"
-          />
-          <img
-            src="assets/light_mode.svg"
-            alt=""
-            *ngIf="themingService.isDarkModeActive"
-          />
+          @if (!themingService.isDarkModeActive) {
+            <img
+              src="assets/dark_mode.svg"
+              alt=""
+              />
+          }
+          @if (themingService.isDarkModeActive) {
+            <img
+              src="assets/light_mode.svg"
+              alt=""
+              />
+          }
         </button>
       </div>
       <page-index

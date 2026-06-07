@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ThemingService } from '../theming.service';
-import { CommonModule } from '@angular/common';
+
 
 export interface Project {
   name: string;
@@ -12,7 +12,7 @@ export interface Project {
 
 @Component({
     selector: 'app-projects',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './projects.component.html',
     styleUrl: './projects.component.scss'
 })

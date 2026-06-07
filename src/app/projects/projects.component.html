@@ -3,76 +3,88 @@
   <div class="carussel-container">
     <div class="carussel">
       <button (click)="switchProject('left')" class="arrow-button">
-        <img
-          src="assets/arrow_left.svg"
-          class="arrow-image"
-          alt="<-"
-          *ngIf="!themingService.isDarkModeActive"
-        />
-        <img
-          src="assets/arrow_left_white.svg"
-          class="arrow-image"
-          alt="<-"
-          *ngIf="themingService.isDarkModeActive"
-        />
+        @if (!themingService.isDarkModeActive) {
+          <img
+            src="assets/arrow_left.svg"
+            class="arrow-image"
+            alt="<-"
+            />
+        }
+        @if (themingService.isDarkModeActive) {
+          <img
+            src="assets/arrow_left_white.svg"
+            class="arrow-image"
+            alt="<-"
+            />
+        }
       </button>
       <img
         [src]="this.allProjects[currentProject].imagePath"
         [alt]="this.allProjects[currentProject].name"
         class="project-picture"
-      />
-      <button (click)="switchProject('right')" class="arrow-button">
-        <img
-          src="assets/arrow_right.svg"
-          class="arrow-image"
-          alt="->"
-          *ngIf="!themingService.isDarkModeActive"
         />
-        <img
-          src="assets/arrow_right_white.svg"
-          class="arrow-image"
-          alt="->"
-          *ngIf="themingService.isDarkModeActive"
-        />
-      </button>
-    </div>
-    <div class="caption">
-      {{ this.allProjects[currentProject].description }}
-    </div>
+        <button (click)="switchProject('right')" class="arrow-button">
+          @if (!themingService.isDarkModeActive) {
+            <img
+              src="assets/arrow_right.svg"
+              class="arrow-image"
+              alt="->"
+              />
+          }
+          @if (themingService.isDarkModeActive) {
+            <img
+              src="assets/arrow_right_white.svg"
+              class="arrow-image"
+              alt="->"
+              />
+          }
+        </button>
+      </div>
+      <div class="caption">
+        {{ this.allProjects[currentProject].description }}
+      </div>
 
-    <div class="links">
-      <div *ngIf="allProjects[currentProject].url" class="source">
-        <a href="{{ this.allProjects[currentProject].url }}" target="_blank">
-          <img
-            *ngIf="!themingService.isDarkModeActive"
-            src="assets/globe_dark.png"
-            alt="Website"
-            class="icon"
-          />
-          <img
-            *ngIf="themingService.isDarkModeActive"
-            src="assets/globe_light.png"
-            alt="Website"
-            class="icon"
-          />
-        </a>
-      </div>
-      <div *ngIf="allProjects[currentProject].github" class="source">
-        <a href="{{ this.allProjects[currentProject].github }}" target="_blank">
-          <img
-            *ngIf="!themingService.isDarkModeActive"
-            src="assets/code_dark.png"
-            alt="GitHub"
-            class="icon"
-          />
-          <img
-            *ngIf="themingService.isDarkModeActive"
-            src="assets/code_light.png"
-            alt="GitHub"
-            class="icon"
-          />
-        </a>
+      <div class="links">
+        @if (allProjects[currentProject].url) {
+          <div class="source">
+            <a href="{{ this.allProjects[currentProject].url }}" target="_blank">
+              @if (!themingService.isDarkModeActive) {
+                <img
+                  src="assets/globe_dark.png"
+                  alt="Website"
+                  class="icon"
+                  />
+              }
+              @if (themingService.isDarkModeActive) {
+                <img
+                  src="assets/globe_light.png"
+                  alt="Website"
+                  class="icon"
+                  />
+              }
+            </a>
+          </div>
+        }
+        @if (allProjects[currentProject].github) {
+          <div class="source">
+            <a href="{{ this.allProjects[currentProject].github }}" target="_blank">
+              @if (!themingService.isDarkModeActive) {
+                <img
+                  src="assets/code_dark.png"
+                  alt="GitHub"
+                  class="icon"
+                  />
+              }
+              @if (themingService.isDarkModeActive) {
+                <img
+                  src="assets/code_light.png"
+                  alt="GitHub"
+                  class="icon"
+                  />
+              }
+            </a>
+          </div>
+        }
       </div>
     </div>
-  </div>
-</section>
+  </section>

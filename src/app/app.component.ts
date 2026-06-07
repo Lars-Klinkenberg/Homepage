@@ -12,19 +12,18 @@ import { PageIndexComponent } from './page-index/page-index.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
 import { ThemingService } from './theming.service';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
     selector: 'app-root',
     imports: [
-        CommonModule,
-        RouterOutlet,
-        HomeComponent,
-        AboutComponent,
-        PageIndexComponent,
-        ProjectsComponent,
-        ContactComponent,
-    ],
+    RouterOutlet,
+    HomeComponent,
+    AboutComponent,
+    PageIndexComponent,
+    ProjectsComponent,
+    ContactComponent
+],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
