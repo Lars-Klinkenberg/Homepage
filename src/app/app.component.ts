@@ -15,19 +15,18 @@ import { ThemingService } from './theming.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    HomeComponent,
-    AboutComponent,
-    PageIndexComponent,
-    ProjectsComponent,
-    ContactComponent,
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    selector: 'app-root',
+    imports: [
+        CommonModule,
+        RouterOutlet,
+        HomeComponent,
+        AboutComponent,
+        PageIndexComponent,
+        ProjectsComponent,
+        ContactComponent,
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild('main', { read: ElementRef }) mainElement!: ElementRef;

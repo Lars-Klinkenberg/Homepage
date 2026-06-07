@@ -3,11 +3,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ThemingService } from '../theming.service';
 
 @Component({
-  selector: 'page-index',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './page-index.component.html',
-  styleUrl: './page-index.component.scss',
+    selector: 'page-index',
+    imports: [CommonModule],
+    templateUrl: './page-index.component.html',
+    styleUrl: './page-index.component.scss'
 })
 export class PageIndexComponent {
   @Input() pageCount: number = 0;
